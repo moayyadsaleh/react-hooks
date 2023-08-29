@@ -1,24 +1,25 @@
-import React, { useState } from "react"; //Import useState
+import React, { useState } from "react";
 import "../styles.css";
 
-//UseState updates the parts that needs to be changed
 function App() {
-  const [count, setCount] = useState(0);
+  // Declare a new state variable, which we'll call "isStriked"
+  const [isStriked, setIsStriked] = useState(false);
 
-  //const [red, green, blue] = [116, 185, 255]; //Deconstruction arrays
+  const toggleStrike = () => {
+    setIsStriked(!isStriked);
+  };
 
-  function increase() {
-    setCount(count + 1);
-  }
+  const strike = () => {
+    setIsStriked(true);
+  };
 
-  function decrease() {
-    setCount(count - 1);
-  }
   return (
     <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
+      <h1 style={{ textDecoration: isStriked ? "line-through" : "none" }}>
+        Milk
+      </h1>
+      <button onClick={strike}>Strike</button>
+      <button onClick={toggleStrike}>Toggle Strike</button>
     </div>
   );
 }
