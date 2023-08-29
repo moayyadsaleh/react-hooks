@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import "../styles.css";
 
+//Challenge:
+//1. Given that you can get the current time using:
+
+//Show the latest time in the <h1> when the Get Time button
+//is pressed.
+
+//2. Given that you can get code to be called every second
+//using the setInterval method.
+//Can you get the time in your <h1> to update every second?
+
+//e.g. uncomment the code below to see Hey printed every second.
+// function sayHi() {
+//   console.log("Hey");
+// }
+// setInterval(sayHi, 1000)
+function currentTime() {
+  return new Date().toLocaleTimeString();
+}
 function App() {
-  // Declare a new state variable, which we'll call "isStriked"
-  const [isStriked, setIsStriked] = useState(false);
-
-  const toggleStrike = () => {
-    setIsStriked(!isStriked);
-  };
-
-  const strike = () => {
-    setIsStriked(true);
-  };
-
   return (
     <div className="container">
-      <h1 style={{ textDecoration: isStriked ? "line-through" : "none" }}>
-        Milk
-      </h1>
-      <button onClick={strike}>Strike</button>
-      <button onClick={toggleStrike}>Toggle Strike</button>
+      <h1>{currentTime()}</h1>
+      <button>Get Time</button>
     </div>
   );
 }
